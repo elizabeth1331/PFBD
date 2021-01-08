@@ -1,0 +1,332 @@
+--@Autor(es): GARCIA MENESES JEREMY, MENDOZA DE LA VEGA DULCE ELIZABETH
+--@Fecha creación: dd/01/2021
+--@Descripción: CREACION TABLAS DEL CASO DE ESTUDIO 
+
+Prompt conectando con usuario sys
+connect sys/system as sysdba
+
+--crear usuario 
+Prompt crear usuario
+drop user dmv_p cascade;
+create user dmv_P identified by dulce quota unlimited on users;
+
+
+--danto permisos 
+Prompt dar permisos 
+grant create table, create session, create sequence,create procedure to dmv_p;
+--GRANT insert ON OBJECT:: dmv_p0901_fx;
+
+
+--entrar como usuario dmv_p0901_fx
+Prompt connectar usuario dmv_p
+connect dmv_p/dulce
+
+-------------------------------------------------------------------------------------------------------------
+----------------------------------------CREANDO TABLA USUARIO------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE USUARIO(
+    usuario_id         number(10,0)     not null,
+    nombre_usuario     varchar2(20)     not null,
+    nombre             varchar2(30)     not null,
+    ap_paterno         varchar2(30)     not null,
+    ap_materno         varchar2(30),
+    email              varchar2(200)    not null,
+    contra             varchar2(40)     not null,
+    constraint empleado_pk primary key (usuario_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------CREANDO TABLA TARJETA_CREDITO-------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE TARJETA_CREDITO(
+    tarjeta_id          number(10,0)    not null,
+    num_seguridad       number(4,0)     not null,
+    num_tarjeta         number(15,0)    not null,
+    mes_exp             number(2,0)     not null,
+    anio_exp            number(2,0)     not null,
+    usuario_id          number(10,0)    not null,
+    constraint tarjeta_pk primary key (tarjeta_id),
+    constraint tc_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+---------------------------------------CREANDO TABLA ESTATUS_VIVIENDA----------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE ESTATUS_VIVIENDA(
+    estatus_vivienda_id number(10, 0)    not null,
+    clave               varchar2(10)     not null,
+    descripcion         varchar2(255)    not null,
+    constraint estatus_vivienda_pk primary key (estatus_vivienda_id )
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA VIVIENDA--------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE VIVIENDA(
+    vivienda_id         number(10,0)     not null,
+    direccion           varchar2(400)    not null,
+    longitud            number(9,5)      not null,
+    latitud             number(9,5)      not null,
+    capacidad_max       number(4,0)      not null,
+    descripcion         varchar2(2000)   not null,
+    fecha_estatus       date             not null,
+    es_v_venta          number(1,0)      not null,
+    es_v_renta          number(1,0)      not null,
+    es_v_vacacionar     number(1,0)      not null,
+    usuario_id          number(10, 0)    not null,
+    estatus_vivienda_id number(10, 0)    not null,
+    constraint vivienda_pk primary key (vivienda_id),
+    constraint vivienda_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint vivienda_estatus_vivienda_id_fk foreign key(estatus_vivienda_id)
+    references estatus_vivienda(estatus_vivienda_id),
+    constraint vivienda_es_turista_chk check ( 
+      es_v_renta = 0 and es_v_venta = 1  and es_v_vacacionar=0
+      or(
+      es_v_renta = 1  and es_v_venta = 1 
+      or es_v_renta = 0 and es_v_vacacionar=1
+      or es_v_renta = 1 and es_v_vacacionar=1
+      )
+  )
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA MENSAJE--------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE MENSAJE(
+    mensaje_id          number(10,0)     not null,
+    titulo              varchar2(40)     not null,
+    texto               varchar2(500)    not null,
+    visto               number(1,0)      not null,
+    usuario_id          number(10, 0)    not null,
+    respuesta_id        number(10, 0)    not null,
+    vivienda_id         number(10, 0)    not null,
+    constraint mensaje_pk primary key (mensaje_id),
+    constraint mensaje_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint mensaje_respuesta_id_fk foreign key(respuesta_id)
+    references mensaje(mensaje_id),
+    constraint vivienda_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA IMAGEN---------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE IMAGEN(
+    imagen_id           number(10, 0)    not null,
+    vivienda_id         number(10, 0)    not null,
+    imagen              blob             not null,
+    constraint imagen_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint imagen_pk primary key (vivienda_id,imagen_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------CREANDO TABLA HIST_ESTATUS_VIVIENDA-------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE HIST_ESTATUS_VIVIENDA(
+    hist_estatus_vivienda_id   number(10, 0)    not null,
+    fecha_estatus              date             not null,
+    vivienda_id                number(10, 0)    not null,
+    estatus_vivienda_id        number(10, 0)    not null,
+    constraint hist_estatus_vivienda_pk primary key (hist_estatus_vivienda_id),
+    constraint hev_estatus_vivienda_id_fk foreign key(estatus_vivienda_id)
+    references estatus_vivienda(estatus_vivienda_id),
+    constraint hev_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA SERVICIO-------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE SERVICIO(
+    servicio_id              number(2, 0)     not null,
+    nombre                   varchar2(50)     not null,
+    descripcion              varchar2(200)    not null,
+    icono                    blob             not null,
+    constraint servicio_pk primary key (servicio_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+----------------------------------------CREANDO TABLA VIVIENDA_SERVICIO--------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE VIVIENDA_SERVICIO(
+    servicio_id              number(2, 0)     not null,
+    vivienda_id              number(10, 0)    not null,
+    constraint vs_servicio_id_fk foreign key(servicio_id)
+    references servicio(servicio_id),
+    constraint vs_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint vivienda_servicio_pk primary key (vivienda_id,servicio_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA ALQUILER-------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE ALQUILER(
+    alquiler_id         number(10,0)     not null,
+    folio               varchar2(18)     not null,
+    fecha_ini           date             not null,
+    fecha_fin           date             not null,
+    usuario_id          number(10, 0)    not null,
+    vivienda_id         number(10, 0)    not null,
+    constraint alquiler_pk primary key (alquiler_id),
+    constraint alquiler_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint alquiler_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA APARTA_VIVIENDA-------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE APARTA_VIVIENDA(
+    aparta_vivienda_id  number(10,0)     not null,
+    enviada             number(1,0)      not null,
+    num_celular         number(1,0)      not null,      
+    usuario_id          number(10,0)      not null,
+    vivienda_id         number(10,0)     not null,
+    constraint aparta_vivienda_pk primary key (aparta_vivienda_id),
+    constraint av_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint av_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------CREANDO TABLA CALIFICACION_VIVIENDA-------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE CALIFICACION_VIVIENDA(
+    calificacion_vivienda_id  number(10,0)     not null,
+    calificacion        number(1,0)     not null,   
+    descripcion         varchar2(600)   not null,  
+    usuario_id          number(10,0)    not null,
+    fecha               date            not null,
+    vivienda_id         number(10,0)    not null,
+    constraint calificacion_vivienda_pk primary key (calificacion_vivienda_id),
+    constraint cv_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint cv_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------CREANDO TABLA CLAVE_RENTA-----------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE CLABE_RENTA(
+    clabe_renta_id  number(10,0)     not null,
+    clabe           number(18,0)     not null,   
+    vivienda_id     number(10,0)     not null,
+    constraint clabe_renta_clabe_renta_pk primary key (clabe_renta_id),
+    constraint cr_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+---------------------------------------CREANDO TABLA VIVIENDA_VACACIONAR-------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE VIVIENDA_VACACIONAR(
+    vivienda_id         number(10,0)     not null,
+    deposito            number(5,0)      not null,
+    costo_dia           number(4,0)      not null,
+    max_dias            number(2,0)      not null,
+    constraint vivienda_vacacionar_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint vivienda_vacacionar_vivienda_pk primary key (vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+------------------------------------------CREANDO TABLA VIVIENDA_RENTA---------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE VIVIENDA_RENTA(
+    vivienda_id         number(10,0)     not null,
+    renta_mensual       number(6,0)      not null,
+    dia_deposito        date             not null,
+    constraint vivienda_renta_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint vivienda_renta_vivienda_pk primary key (vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+------------------------------------------CREANDO TABLA VIVIENDA_VENTA---------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE VIVIENDA_VENTA(
+    vivienda_id         number(10,0)     not null,
+    num_catastral       number(10,0)     not null,
+    folio               varchar2(18)     not null,
+    precio_inical       number(10,2)     not null,
+    avaluo              blob             not null,
+    comision            number(3,0)     not null,
+    usuario_id          number(10,0),
+    constraint vv_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint vv_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint vivienda_venta_vivienda_pk primary key (vivienda_id)
+);
+
+
+-------------------------------------------------------------------------------------------------------------
+----------------------------------------------CREANDO TABLA PAGO---------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE PAGO(
+    vivienda_id         number(10,0)     not null,
+    pago_id             number(10,0)     not null,
+    fecha               date             not null,
+    pdf_pago            blob             not null,
+    constraint pago_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint pago_pago_vivienda_pk primary key (vivienda_id,pago_id)
+);
+
+-------------------------------------------------------------------------------------------------------------
+------------------------------------------CREANDO TABLA VIVIENDA__RENTA_USUARIO---------------------------------------
+-------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE VIVIENDA__RENTA_USUARIO(
+    vivienda_renta_usuario_id         number(10,0)    not null,
+    vivienda_id         number(10,0)     not null,
+    folio               varchar2(18)     not null,
+    fecha_contrato      date             not null,
+    pdf_contrato        blob             not null,
+    usuario_id          number(10,0)     not null,
+    constraint vru_vivienda_id_fk foreign key(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint vru_usuario_id_fk foreign key(usuario_id)
+    references usuario(usuario_id),
+    constraint vru_vivienda_renta_usuario_pk primary key (vivienda_renta_usuario_id)
+);
