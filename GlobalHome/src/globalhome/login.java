@@ -12,6 +12,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import static java.awt.SystemColor.window;
+import java.sql.Connection;
+import javax.swing.WindowConstants;
+import servicios.ConnectionFactory;
 
 
 /**
@@ -24,13 +27,14 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public login() {
-        initComponents();
         
+        
+        initComponents();
+        //this.setVisible(true);
         ImageIcon imagen1 = new ImageIcon(getClass().getResource("/imagenes/escudo_fi_color.png"));
         Icon fondo1 =new ImageIcon(imagen1.getImage().getScaledInstance(I.getWidth(),I.getHeight(),Image.SCALE_DEFAULT));
         I.setIcon(fondo1);
         this.repaint();
-       
         this.setTitle("GLOBAL HOME");
         this.setLocationRelativeTo(login.this);
         this.setExtendedState(WIDTH);
@@ -45,6 +49,8 @@ public class login extends javax.swing.JFrame {
         IE.setIcon(fondo2);
         toFront();
         this.repaint();
+        
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); //Evitamos que la ventana se cierre al ejecutarse el programa.
         
         
     }
@@ -91,7 +97,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registrarse);
-        registrarse.setBounds(710, 560, 230, 110);
+        registrarse.setBounds(710, 560, 270, 110);
 
         ingresar.setBackground(new java.awt.Color(0, 153, 255));
         ingresar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 36)); // NOI18N
@@ -104,7 +110,7 @@ public class login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(320, 310, 200, 48);
+        jLabel2.setBounds(320, 310, 200, 43);
 
         Contraseña.setFont(new java.awt.Font("Yu Gothic", 3, 18)); // NOI18N
         getContentPane().add(Contraseña);
@@ -153,6 +159,8 @@ public class login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new login().setVisible(true);
+                //Connection connection = ConnectionFactory.getConnection();
+                
             }
         });
     }

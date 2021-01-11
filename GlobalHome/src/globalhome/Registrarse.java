@@ -23,9 +23,9 @@ public class Registrarse extends javax.swing.JFrame {
      */
     public Registrarse() {
         initComponents();
-
-      this.setLocationRelativeTo(null);		
-      this.setVisible(true);
+        
+        this.setLocationRelativeTo(null);		
+        //this.setVisible(true);
         
         
         ImageIcon imagen1 = new ImageIcon(getClass().getResource("/imagenes/registro.jpg"));
@@ -166,8 +166,8 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
-        Registrarse r=new Registrarse();
-        r.setVisible(true);
+        login l=new login();
+        l.setVisible(true);
         toFront();
         this.dispose();
     }//GEN-LAST:event_registrarseActionPerformed
