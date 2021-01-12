@@ -5,13 +5,14 @@
  */
 package globalhome;
 
+import entidades.Usuario;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
+import dao.UsarioDAOImpl;
 /**
  *
  * @author eliss
@@ -60,9 +61,9 @@ public class Registrarse extends javax.swing.JFrame {
         usuario = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         pass = new javax.swing.JTextField();
-        ap_pat = new javax.swing.JTextField();
+        apPat = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        ap_mat = new javax.swing.JTextField();
+        apMat = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -116,9 +117,9 @@ public class Registrarse extends javax.swing.JFrame {
         getContentPane().add(pass);
         pass.setBounds(150, 470, 430, 50);
 
-        ap_pat.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
-        getContentPane().add(ap_pat);
-        ap_pat.setBounds(830, 310, 430, 50);
+        apPat.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
+        getContentPane().add(apPat);
+        apPat.setBounds(830, 310, 430, 50);
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(246, 74, 84));
@@ -126,9 +127,9 @@ public class Registrarse extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(50, 400, 220, 60);
 
-        ap_mat.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
-        getContentPane().add(ap_mat);
-        ap_mat.setBounds(830, 470, 430, 50);
+        apMat.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
+        getContentPane().add(apMat);
+        apMat.setBounds(830, 470, 430, 50);
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(246, 74, 84));
@@ -152,7 +153,7 @@ public class Registrarse extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(246, 74, 84));
         jLabel5.setText("Nombre ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(760, 70, 160, 60);
+        jLabel5.setBounds(760, 70, 190, 60);
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(246, 74, 84));
@@ -173,10 +174,28 @@ public class Registrarse extends javax.swing.JFrame {
     }//GEN-LAST:event_registrarseActionPerformed
 
     private void registrarse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarse1ActionPerformed
-        Registrarse r=new Registrarse();
-        r.setVisible(true);
-        toFront();
-        this.dispose();
+        String nombreUsuario = this.usuario.getText();
+        String email = this.email.getText();
+        String pwd = this.pass.getText();
+        String nombre = this.nombre.getText();
+        String apPaterno = this.apPat.getText();
+        String apMaterno = this.apMat.getText();
+        Usuario usuarioObj= new Usuario();
+        servicios.impl.RegistrarUsuarioServiceImpl usuarioService= new servicios.impl.RegistrarUsuarioServiceImpl();
+        usuarioService.preparaUsuario(usuarioObj, nombre, nombreUsuario, apPaterno, apMaterno, email, pwd);
+        UsarioDAOImpl usuarioDao=  new UsarioDAOImpl();
+        if(usuarioDao.buscarUsuario(usuarioObj)){
+            System.out.println("El usuario ya esta registrado");
+        }else{
+            usuarioDao.registrarUsuario(usuarioObj);
+        }
+        this.usuario.setText("");
+        this.email.setText("");
+        this.pass.setText("");
+        this.nombre.setText("");
+        this.apPat.setText("");
+        this.apMat.setText("");
+      
     }//GEN-LAST:event_registrarse1ActionPerformed
 
     private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
@@ -213,15 +232,16 @@ public class Registrarse extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registrarse().setVisible(true);
+                new Registrarse().setVisible(true);                
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel I;
-    private javax.swing.JTextField ap_mat;
-    private javax.swing.JTextField ap_pat;
+    private javax.swing.JTextField apMat;
+    private javax.swing.JTextField apPat;
     private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

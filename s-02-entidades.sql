@@ -6,20 +6,8 @@ Prompt conectando con usuario sys
 connect sys/system as sysdba
 
 --crear usuario 
-Prompt crear usuario
-drop user dmv_p cascade;
-create user dmv_P identified by dulce quota unlimited on users;
-
-
---danto permisos 
-Prompt dar permisos 
-grant create table, create session, create sequence,create procedure to dmv_p;
---GRANT insert ON OBJECT:: dmv_p0901_fx;
-
-
---entrar como usuario dmv_p0901_fx
-Prompt connectar usuario dmv_p
-connect dmv_p/dulce
+Prompt conectando con el usuario administrador.
+connect gm_proy_admin/mg
 
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------CREANDO TABLA USUARIO------------------------------------------------
@@ -312,7 +300,7 @@ CREATE TABLE PAGO_VIVIENDA(
     importe             number(7,2)      not null,
     constraint pago_vivienda_vivienda_id_fk foreign key(vivienda_id)
     references vivienda(vivienda_id),
-    constraint pago_vivienda_pago_vivienda_pk primary key (vivienda_id,pago_id)
+    constraint pago_vivienda_pago_vivienda_pk primary key (vivienda_id,num_pago)
 );
 
 -------------------------------------------------------------------------------------------------------------

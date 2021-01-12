@@ -51,7 +51,7 @@ public class ConnectionFactory {
         String url = properties.getProperty("connection.database.url");
         System.out.println("Obteniedo la conexión");
         try{
-            return DriverManager.getConnection(url,"JEREMY0508","jeremy");
+            return DriverManager.getConnection(url,"GM_PROY_ADMIN","mg");
         } catch (SQLException e){
             throw new RuntimeException("Error al obtener la conexion de la base de datos", e);            
         }
