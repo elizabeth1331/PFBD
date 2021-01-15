@@ -5,7 +5,6 @@
  */
 package dao;
 
-import dao.UsuarioDAO;
 import entidades.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -74,7 +73,7 @@ public class UsarioDAOImpl implements UsuarioDAO{
     public void registrarUsuario(Usuario usuario) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement ps = null;
-        int i = 0;
+        int i = 10;
         try{
             ps = con.prepareStatement(queryCreaUsuario);
             System.out.println("Insertando los datos del usuario en la BD");
