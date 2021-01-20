@@ -1,5 +1,9 @@
 package globalHome;
 
+import dao.UsarioDAOImpl;
+import entidades.Usuario;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,12 +16,15 @@ package globalHome;
  */
 public class Login extends javax.swing.JFrame {
 
+    public static Usuario usuarioObj;
     /**
      * Creates new form login
      */
     public Login() {
+        this.usuarioObj = null;
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -37,7 +44,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         userTF = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passTF = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -80,8 +87,13 @@ public class Login extends javax.swing.JFrame {
 
         userTF.setBackground(new java.awt.Color(211, 218, 234));
         userTF.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        userTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTFActionPerformed(evt);
+            }
+        });
 
-        jPasswordField1.setBackground(new java.awt.Color(211, 218, 234));
+        passTF.setBackground(new java.awt.Color(211, 218, 234));
 
         btnLogin.setBackground(new java.awt.Color(255, 104, 15));
         btnLogin.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 24)); // NOI18N
@@ -138,7 +150,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(userTF, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(passTF, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -163,7 +175,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(passTF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8))
@@ -238,7 +250,25 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+
+        this.usuarioObj= new Usuario();
+        servicios.UsuarioServiceImpl usuarioService= new servicios.UsuarioServiceImpl();
+        usuarioService.preparaLoggUsuario(this.usuarioObj, this.userTF.getText(), this.passTF.getPassword());
+        UsarioDAOImpl usuarioDao=  new UsarioDAOImpl();
+        usuarioDao.loggearUsuarios(this.usuarioObj);
+        if(this.usuarioObj.getNombreUsuario() != null && this.usuarioObj.getPwd() != null){
+            usuarioMain uM = new usuarioMain();
+            uM.setVisible(true);
+            uM.toFront();
+            toFront();
+            dispose();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario no registrado");
+        }        
+        
+        this.userTF.setText("");
+        this.passTF.setText("");        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
@@ -247,6 +277,10 @@ public class Login extends javax.swing.JFrame {
         toFront();
         dispose();
     }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void userTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,11 +333,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JPasswordField passTF;
     private javax.swing.JTextField userTF;
     // End of variables declaration//GEN-END:variables
 }

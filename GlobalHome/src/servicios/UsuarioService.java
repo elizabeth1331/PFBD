@@ -11,6 +11,7 @@ import entidades.Usuario;
  *
  * @author jeremy
  */
-public interface RegistroUsuarioService {
+public interface UsuarioService {
     void preparaUsuario(Usuario usuario,String nombre,String nombreUsuario, String apPaterno,String apMaterno,String Email, String pwd);
+    void preparaLoggUsuario(Usuario usuario, String nombreUsuario,char [] pass);
 }

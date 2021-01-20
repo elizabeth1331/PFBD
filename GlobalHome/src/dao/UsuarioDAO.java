@@ -14,4 +14,5 @@ import entidades.Usuario;
 public interface UsuarioDAO {
     public boolean buscarUsuario(Usuario usuario);
     public void registrarUsuario(Usuario usuario);
+    public Usuario loggearUsuarios(Usuario usuario);
 }

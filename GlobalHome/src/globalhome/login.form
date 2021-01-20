@@ -109,7 +109,7 @@
                               <Component id="jLabel6" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                               <Component id="userTF" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
-                              <Component id="jPasswordField1" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                              <Component id="passTF" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -142,7 +142,7 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPasswordField1" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="passTF" min="-2" pref="37" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
@@ -201,8 +201,11 @@
               <Font name="Gill Sans MT" size="24" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userTFActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="passTF">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ea" green="da" red="d3" type="rgb"/>

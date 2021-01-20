@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import servicios.ConnectionFactory;
 
 /**
@@ -19,8 +21,11 @@ import servicios.ConnectionFactory;
 public class UsarioDAOImpl implements UsuarioDAO{
 
     //Consulta para obtener un usuario con los datos del que se va a registrar para validar si ya existe.
-    private static final String querySelectUsuarios = "select u.usuario_id, u.nombre_usuario, u.nombre, u.ap_paterno,"
+    private static final String querySelectUsrExist = "select u.usuario_id, u.nombre_usuario, u.nombre, u.ap_paterno,"
             + "u.ap_materno, u.email, u.password from usuario u where u.nombre_usuario = ? and u.email = ?";
+    
+    private static final String querySelectUsrLogin = "select u.usuario_id, u.nombre_usuario, u.nombre, u.ap_paterno,"
+            + "u.ap_materno, u.email, u.password from usuario u where u.nombre_usuario = ? and u.password = ?";
     
     
     private static final String queryCreaUsuario = "insert into usuario"
@@ -35,7 +40,7 @@ public class UsarioDAOImpl implements UsuarioDAO{
         int contadorRegistros=0;
         con = ConnectionFactory.getConnection();
         try{
-            ps = con.prepareStatement(querySelectUsuarios);
+            ps = con.prepareStatement(querySelectUsrExist);
             ps.setString(1,usuario.getNombreUsuario());
             ps.setString(2,usuario.getEmail());
             //ejecutamos la consulta
@@ -94,5 +99,53 @@ public class UsarioDAOImpl implements UsuarioDAO{
             ConnectionFactory.close(con);
         }
     }
-    
+
+    @Override
+    public Usuario loggearUsuarios(Usuario usuario) {
+        
+        Connection conn;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int index;
+        //Establecemos la conneccion a la base de datos
+        conn = ConnectionFactory.getConnection();
+        //Consulta
+        try{
+            //Indicamos la sentencia sql
+            ps = conn.prepareStatement(querySelectUsrLogin);
+            ps.setString(1, usuario.getNombreUsuario());
+            ps.setString(2, usuario.getPwd());
+            rs = ps.executeQuery();
+            //llenamos nuestra lista con los resultados de la consulta
+            if(rs.next()){
+                    usuario = new Usuario();
+                    //Este indice es para obtener los valores de las columnas las columnas
+            index = 1;
+            usuario.setUsuarioID(rs.getLong(index++));
+            usuario.setNombreUsuario(rs.getString(index++));
+            usuario.setNombre(rs.getString(index++));
+                    usuario.setApPaterno(rs.getString(index++));
+                    usuario.setApMaterno(rs.getString(index++));
+                    usuario.setEmail(rs.getString(index++));
+                    usuario.setPwd(rs.getString(index++));
+                    System.out.println(usuario.getNombreUsuario());
+            }else{
+                usuario.setPwd(null);
+                usuario.setNombreUsuario(null);
+            }
+            
+        } catch (SQLException e){
+            System.out.println("Error al obtener los datos del actor.");
+            e.printStackTrace();
+        } finally{
+            ConnectionFactory.close(ps);
+            ConnectionFactory.close(rs);
+            ConnectionFactory.close(conn);
+        }
+            
+            return new Usuario();
+    }
+        
+        
 }
+    

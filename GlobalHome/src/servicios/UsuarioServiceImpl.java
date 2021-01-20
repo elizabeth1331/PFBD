@@ -6,12 +6,11 @@
 package servicios;
 
 import entidades.Usuario;
-import servicios.RegistroUsuarioService;
 /**
  *
  * @author jeremy
  */
-public class RegistrarUsuarioServiceImpl implements RegistroUsuarioService{
+public class UsuarioServiceImpl implements UsuarioService{
  
     @Override
     public void preparaUsuario(Usuario usuario,String nombre,String nombreUsuario, String apPaterno,String apMaterno,String email, String pwd) {
@@ -22,6 +21,14 @@ public class RegistrarUsuarioServiceImpl implements RegistroUsuarioService{
         usuario.setApMaterno(apMaterno);
         usuario.setEmail(email);
         usuario.setPwd(pwd);
-    }    
+    }   
+
+    @Override
+    public void preparaLoggUsuario(Usuario usuario, String nombreUsuario, char[] pass) {
+        usuario.setNombreUsuario(nombreUsuario);
+        usuario.setPwd(new String(pass));
+    }
+
+ 
     
 }

@@ -33,6 +33,10 @@ public class Usuario {
     }        
     
     //Métodos getters y setters
+    public void setUsuarioID(long usuarioID){
+        this.usuarioID = usuarioID;
+    }
+    
     public void setNombreUsuario(String nombreUsuario){
         this.nombreUsuario = nombreUsuario;
     }
@@ -57,6 +61,10 @@ public class Usuario {
         this.pwd = pwd;
     }
     
+    public long getUsuarioID(){
+        return this.usuarioID;
+    }    
+    
     public String getNombreUsuario(){
         return this.nombreUsuario;
     }
@@ -80,5 +88,7 @@ public class Usuario {
     public String getPwd(){
         return this.pwd;
     }   
+    
+    
     
 }
