@@ -1,6 +1,6 @@
 --@Autor(es): GARCIA MENESES JEREMY, MENDOZA DE LA VEGA DULCE ELIZABETH
 --@Fecha creación: 01/02/2021
---@Descripción: CREACION TABLAS DEL CASO DE ESTUDIO
+--@Descripción: CREACION DE TRES VISTAS DEL CASO DE ESTUDIO
 
 
 --En la empresa se implemento el manejo de vitas para controlar el acceso a algunos datos de
