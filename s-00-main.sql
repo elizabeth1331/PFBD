@@ -50,8 +50,16 @@ set serveroutput off
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------------INVOCACIÓN DE SCRIPTS------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
-
+Prompt Creando usuarios
 @@s-01-usuarios.sql
+Prompt Creando tablas
 @@s-02-entidades.sql
-
-
+Prompt Creando tablas temporales
+@@s-03-tablas-temporales.sql
+Prompt Creando secuencias
+@@s-05-secuencias.sql
+Prompt Creando indices
+@@s-06-indices.sql
+Prompt Carga inicial
+@@s-09-carga-inicial.sql
+commit;

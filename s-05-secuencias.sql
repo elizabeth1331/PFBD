@@ -61,19 +61,6 @@ CREATE SEQUENCE tarjeta_seq
   order --Se garantiza que los valores se generen en el orden solicitado
 ;
 
--------------------------------------------------------------------------------------------------------------
-----------------------------------------------CREACION DE SECUENCIA PARA IMAGEN------------------------------------------------
--------------------------------------------------------------------------------------------------------------
-
-CREATE SEQUENCE imagen_seq
-  start WITH 1 --La secuencia iniciara en 1
-  increment by 1 --La secuencia incrementa de 1 en 1
-  nominvalue --No se necesita un valor minimo ya que la secuencia no es ciclica
-  nomaxvalue --No se establece un valor maximo para la secuencia
-  nocycle --La secuencia no se repetira al alcanzar un valor maximo
-  cache 10 --Se almacenan 10 valores de la secuencia en memoria (para mejor desempeño en una carga "masiva" de datos)
-  order --Se garantiza que los valores se generen en el orden solicitado
-;
 
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------------CREACION DE SECUENCIA PARA ESTATUS_VIVIENDA------------------------------------------------
@@ -103,19 +90,6 @@ CREATE SEQUENCE hist_estatus_v_seq
   order --Se garantiza que los valores se generen en el orden solicitado
 ;
 
--------------------------------------------------------------------------------------------------------------
-----------------------------------------------CREACION DE SECUENCIA PARA PAGO------------------------------------------------
--------------------------------------------------------------------------------------------------------------
-
-CREATE SEQUENCE pago_seq
-  start WITH 1 --La secuencia iniciara en 1
-  increment by 1 --La secuencia incrementa de 1 en 1
-  nominvalue --No se necesita un valor minimo ya que la secuencia no es ciclica
-  nomaxvalue --No se establece un valor maximo para la secuencia
-  nocycle --La secuencia no se repetira al alcanzar un valor maximo
-  cache 10 --Se almacenan 10 valores de la secuencia en memoria (para mejor desempeño en una carga "masiva" de datos)
-  order --Se garantiza que los valores se generen en el orden solicitado
-;
 
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------------CREACION DE SECUENCIA PARA SERVICIO------------------------------------------------

@@ -38,7 +38,8 @@ CREATE TABLE TARJETA_CREDITO(
     usuario_id          number(10,0)    not null,
     constraint tarjeta_pk primary key (tarjeta_id),
     constraint tc_usuario_id_fk foreign key(usuario_id)
-    references usuario(usuario_id)
+    references usuario(usuario_id),
+    constraint tarjeta_num_tarjeta_chk check (num_tarjeta >= 100000)
 );
 
 
@@ -78,11 +79,9 @@ CREATE TABLE VIVIENDA(
     references estatus_vivienda(estatus_vivienda_id),
     constraint vivienda_es_turista_chk check ( 
       es_v_renta = 0 and es_v_venta = 1  and es_v_vacacionar=0
-      or(
-      es_v_renta = 1  and es_v_venta = 1 
-      or es_v_renta = 0 and es_v_vacacionar=1
-      or es_v_renta = 1 and es_v_vacacionar=1
-      )
+      or es_v_renta = 1 and es_v_venta = 0 and es_v_vacacionar = 0
+      or es_v_renta = 0 and es_v_vacacionar = 1 and es_v_venta = 0
+      or es_v_renta = 1 and es_v_vacacionar = 1 and es_v_venta = 0
   )
 );
 
@@ -97,7 +96,7 @@ CREATE TABLE MENSAJE(
     texto               varchar2(500)    not null,
     visto               number(1,0)      not null,
     usuario_id          number(10, 0)    not null,
-    respuesta_id        number(10, 0)    not null,
+    respuesta_id        number(10, 0)    null,
     vivienda_id         number(10, 0)    not null,
     constraint mensaje_pk primary key (mensaje_id),
     constraint mensaje_usuario_id_fk foreign key(usuario_id)
@@ -114,12 +113,12 @@ CREATE TABLE MENSAJE(
 -------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE IMAGEN(
-    imagen_id           number(1, 0)    not null, --No requiere secuencia.
+    num_imagen           number(1, 0)    not null, --No requiere secuencia.
     vivienda_id         number(10, 0)    not null,
     imagen              blob             not null,
     constraint imagen_vivienda_id_fk foreign key(vivienda_id)
     references vivienda(vivienda_id),
-    constraint imagen_pk primary key (vivienda_id,imagen_id)
+    constraint imagen_pk primary key (vivienda_id,num_imagen)
 );
 
 
@@ -307,7 +306,7 @@ CREATE TABLE PAGO_VIVIENDA(
 ------------------------------------------CREANDO TABLA VIVIENDA__RENTA_USUARIO---------------------------------------
 -------------------------------------------------------------------------------------------------------------
 
-CREATE TABLE VIVIENDA__RENTA_USUARIO(
+CREATE TABLE VIVIENDA_RENTA_USUARIO(
     vivienda_renta_usuario_id   number(10,0)    not null,
     vivienda_id                 number(10,0)    not null,
     folio                       varchar2(18)    not null,

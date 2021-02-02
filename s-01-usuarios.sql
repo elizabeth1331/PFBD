@@ -22,7 +22,7 @@ Prompt creando rol_admin
 
 --drop role rol_admin;
 create role rol_admin;
-grant create session,create table, create synonym to rol_admin;
+grant create session,create table,create sequence ,create synonym to rol_admin;
  
 Prompt creando rol_invitado 
 
