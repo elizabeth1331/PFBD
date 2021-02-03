@@ -43,10 +43,6 @@ CREATE UNIQUE INDEX V_RENTA_UUSUARIO_ID_FOLIO_IUK ON VIVIENDA_RENTA_USUARIO(vivi
 --Índice que valida que la combinación nombre e id sea única.
 CREATE UNIQUE INDEX SERVICIO_ID_NOMBRE_IUK ON SERVICIO(servicio_id, nombre);
 
---índice que valida que la combinación vivienda_id y su dirección sea única.
-CREATE UNIQUE INDEX VIVIENDA_ID_DIRECCION_IUK ON VIVIENDA(vivienda_id, direccion);
-
-
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------------CREACION DE ÍNDICES BASADOS EN FUNCIONES------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
