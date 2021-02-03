@@ -2,7 +2,7 @@
 --@Fecha creación: 01/02/2021
 --@Descripción: CREACION DE TRES O MAS SINONIMOS DEL CASO DE ESTUDIO
 
-
+connect gm_proy_admin/mg
 create or replace public synonym usuario for gm_proy_admin.usuario;
 create or replace public synonym vivienda for gm_proy_admin.vivienda;
 create or replace public synonym vivienda_servicio for gm_proy_admin.vivienda_servicio;

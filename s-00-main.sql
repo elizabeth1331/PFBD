@@ -60,6 +60,10 @@ Prompt Creando secuencias
 @@s-05-secuencias.sql
 Prompt Creando indices
 @@s-06-indices.sql
+Prompt Creación de sinonimos
+@@s-07-sinonimos.sql
+Prompt Creación de vistas
+@@s-08-vistas
 Prompt Carga inicial
 @@s-09-carga-inicial.sql
 commit;
