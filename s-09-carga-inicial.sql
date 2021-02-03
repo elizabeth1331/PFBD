@@ -324,7 +324,9 @@ insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
---insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values ();
+insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98fg32',to_date('09/1/1992','mm/dd/yyyy'),empty_blob(),9);
+insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98ru384',to_date('07/21/2007','mm/dd/yyyy'),empty_blob(),21);
+insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98kl63',to_date('02/17/2012','mm/dd/yyyy'),empty_blob(),14);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
