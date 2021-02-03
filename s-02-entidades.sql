@@ -39,7 +39,7 @@ CREATE TABLE TARJETA_CREDITO(
     constraint tarjeta_pk primary key (tarjeta_id),
     constraint tc_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
-    constraint tarjeta_num_tarjeta_chk check (num_tarjeta >= 100000)
+    constraint tarjeta_num_tarjeta_chk check (num_tarjeta >= 1000000000000000)
 );
 
 
@@ -214,11 +214,11 @@ CREATE TABLE CALIFICACION_VIVIENDA(
     descripcion         varchar2(600)   not null,  
     usuario_id          number(10,0)    not null,
     fecha               date            not null,
-    vivienda_id         number(10,0)    not null,
+    alquiler_id         number(10,0)    not null,
     constraint calificacion_vivienda_pk primary key (calificacion_vivienda_id),
     constraint cv_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
-    constraint cv_vivienda_id_fk foreign key(vivienda_id)
+    constraint cv_vivienda_id_fk foreign key(alquiler_id)
     references vivienda(vivienda_id)
 );
 
@@ -233,7 +233,8 @@ CREATE TABLE CLABE_RENTA(
     vivienda_id     number(10,0)     not null,
     constraint clabe_renta_clabe_renta_pk primary key (clabe_renta_id),
     constraint cr_vivienda_id_fk foreign key(vivienda_id)
-    references vivienda(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint clabe_renta_clable_chk check(clabe >= 1000000000000000)
 );
 
 
