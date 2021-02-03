@@ -20,10 +20,10 @@ where u.usuario_id=tc.usuario_id;
 
 create or replace view v_vivienda_calificacion_arrendatario(
 folio,vivienda_id,calificacion,descripcion, fecha
-) as select folio,a.vivienda_id, calificacion,descripcion, fecha
+) as select folio,cv.vivienda_id, calificacion,descripcion, fecha
 from usuario u, calificacion_vivienda cv, alquiler a
 where u.usuario_id=cv.usuario_id
-and a.vivienda_id=cv.alquiler_id;
+and a.vivienda_id=cv.vivienda_id;
 
 --vista para los usuarios busquen alquilar una casa puedan ver la reseñas de las casas a qluilar, ademas de datos de lugar
 

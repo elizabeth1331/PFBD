@@ -56,14 +56,16 @@ Prompt Creando tablas
 @@s-02-entidades.sql
 Prompt Creando tablas temporales
 @@s-03-tablas-temporales.sql
-Prompt Creando secuencias
+Prompt Creando tablas temporales
+@@s-04-tablas-externas.sql
+Prompt Creando tablas externas
 @@s-05-secuencias.sql
 Prompt Creando indices
 @@s-06-indices.sql
-Prompt Creación de sinonimos
+Prompt Creando sinonimos
 @@s-07-sinonimos.sql
-Prompt Creación de vistas
-@@s-08-vistas
+Prompt Creando vistas
+@@s-08-vistas.sql
 Prompt Carga inicial
 @@s-09-carga-inicial.sql
 commit;

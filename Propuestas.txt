@@ -1,0 +1,16 @@
+Script s-10-consultas.sql
+
+revisar las tarjetas ya expidadas 
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,6 +2,12 @@
 --@Fecha creación: dd/01/2021
 --@Descripción: CREACION DE USUARIOS Y PERMISOS NECESARIOS PARA EL CASO DE ESTUDIOS 
 
+prompt creando directorio tmp_dir
+create or replace directory tmp_dir as '/tmp/bases';
+
+prompt creando el directorio /tmp/bases en caso de no existir
+!mkdir -p /tmp/bases
+
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------------CREANDO USUARIO------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
@@ -28,11 +34,20 @@ Prompt creando rol_invitado
 
 --drop role rol_invitado;
 create role rol_invitado;
-grant create session to rol_invitado;
+grant create session, create synonym to rol_invitado;
 -------------------------------------------------------------------------------------------------------------
 ----------------------------------------------ASIGNANDO ROLES------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
 
 grant rol_invitado to mg_proy_invitado;
- 
+grant read, write on directory tmp_dir to mg_proy_invitado;
 grant rol_admin to gm_proy_admin;
+grant read, write on directory tmp_dir to gm_proy_admin;
+
+
+
+prompt copiando los archivos csv a /tmp/bases
+!cp pago_vivienda_ext.csv /tmp/bases
+!cp vivienda_venta_ext.csv /tmp/bases
+prompt cambiando permisos
+!chmod 777 /tmp/bases
