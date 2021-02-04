@@ -34,12 +34,15 @@ CREATE TABLE TARJETA_CREDITO(
     num_seguridad       number(4,0)     not null,
     num_tarjeta         number(16,0)    not null,
     mes_exp             number(2,0)     not null,
-    anio_exp            number(2,0)     not null,
+    anio_exp            number(4,0)     not null,
     usuario_id          number(10,0)    not null,
     constraint tarjeta_pk primary key (tarjeta_id),
     constraint tc_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
-    constraint tarjeta_num_tarjeta_chk check (num_tarjeta >= 100000)
+    constraint TARJETA_CREDITO_num_tarjeta_chk check(num_tarjeta >= 1000000000000000 and num_tarjeta <= 9999999999999999),
+    constraint TARJETA_CREDITO_num_seguridad_chk check(num_seguridad >= 1000 and num_seguridad <= 9999),
+    constraint TARJETA_CREDITO_anio_exp_chk check(anio_exp >= 1900 and anio_exp <= 3000),
+    constraint TARJETA_CREDITO_mes_exp_chk check (mes_exp <= 12)
 );
 
 
@@ -49,7 +52,7 @@ CREATE TABLE TARJETA_CREDITO(
 
 CREATE TABLE ESTATUS_VIVIENDA(
     estatus_vivienda_id number(10, 0)    not null,
-    clave               varchar2(10)     not null,
+    clave               varchar2(10)      not null,
     descripcion         varchar2(255)    not null,
     constraint estatus_vivienda_pk primary key (estatus_vivienda_id )
 );
@@ -182,7 +185,8 @@ CREATE TABLE ALQUILER(
     constraint alquiler_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
     constraint alquiler_vivienda_id_fk foreign key(vivienda_id)
-    references vivienda(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint alquiler_folio_chk check(length(folio) = 18)
 );
 
 
@@ -200,26 +204,28 @@ CREATE TABLE APARTA_VIVIENDA(
     constraint av_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
     constraint av_vivienda_id_fk foreign key(vivienda_id)
-    references vivienda(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint aparta_vivienda_num_celular_chk check(num_celular >= 100000000000 and num_celular<= 999999999999)
 );
 
 
 -------------------------------------------------------------------------------------------------------------
---------------------------------------------CREANDO TABLA CALIFICACION_VIVIENDA-------------------------------------------
+--------------------------------------------CREANDO TABLA CALIFICACION_ALQUILER-------------------------------------------
 -------------------------------------------------------------------------------------------------------------
 
-CREATE TABLE CALIFICACION_VIVIENDA(
-    calificacion_vivienda_id  number(10,0)     not null,
+CREATE TABLE CALIFICACION_ALQUILER(
+    CALIFICACION_ALQUILER_id  number(10,0)     not null,
     calificacion        number(1,0)     not null,   
     descripcion         varchar2(600)   not null,  
     usuario_id          number(10,0)    not null,
     fecha               date            not null,
-    vivienda_id         number(10,0)    not null,
-    constraint calificacion_vivienda_pk primary key (calificacion_vivienda_id),
+    alquiler_id         number(10,0)    not null,
+    constraint CALIFICACION_ALQUILER_pk primary key (CALIFICACION_ALQUILER_id),
     constraint cv_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
-    constraint cv_vivienda_id_fk foreign key(vivienda_id)
-    references vivienda(vivienda_id)
+    constraint cv_vivienda_id_fk foreign key(alquiler_id)
+    references vivienda(vivienda_id),
+    constraint CALIFICACION_ALQUILER_calificacion_chk check(calificacion <= 5)
 );
 
 
@@ -233,7 +239,8 @@ CREATE TABLE CLABE_RENTA(
     vivienda_id     number(10,0)     not null,
     constraint clabe_renta_clabe_renta_pk primary key (clabe_renta_id),
     constraint cr_vivienda_id_fk foreign key(vivienda_id)
-    references vivienda(vivienda_id)
+    references vivienda(vivienda_id),
+    constraint clabe_renta_chk check(clabe >= 100000000000000000 and clabe <= 999999999999999999)
 );
 
 
@@ -283,7 +290,9 @@ CREATE TABLE VIVIENDA_VENTA(
     references vivienda(vivienda_id),
     constraint vv_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
-    constraint vivienda_venta_vivienda_pk primary key (vivienda_id)
+    constraint vivienda_venta_vivienda_pk primary key (vivienda_id),
+    constraint vivienda_venta_folio_chk check(length(folio) = 18),
+    constraint vivienda_venta_clabe_chk check(clabe >= 100000000000000000 and clabe <= 999999999999999999)
 );
 
 
@@ -317,5 +326,6 @@ CREATE TABLE VIVIENDA_RENTA_USUARIO(
     references vivienda(vivienda_id),
     constraint vru_usuario_id_fk foreign key(usuario_id)
     references usuario(usuario_id),
-    constraint vru_vivienda_renta_usuario_pk primary key (vivienda_renta_usuario_id)
+    constraint vru_vivienda_renta_usuario_pk primary key (vivienda_renta_usuario_id),
+    constraint vivienda_renta_folio_chk check(length(folio) = 18)
 );

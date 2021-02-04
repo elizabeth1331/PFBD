@@ -2,26 +2,7 @@ Script s-10-consultas.sql
 
 revisar las tarjetas ya expidadas 
 
-funciones:
-Crear archivos CSV.
 
-Trigger:
-- Compunt:
-Cuando se inserta un nuevo regitro de vivienda, se manda un mensaje a todos los usuario para promocionarla.
-Dulce Elizabeth Mendoza de la Vega
-17:44
-Trigger 1.- SOLICITAR TARJETAS YA ESPIRADAS CON EL FIN DE ELIMINARLAS Y MANDAR UN CORREO ELECTRONICO A USUARIO, PARA QUE REGISTRE UNA NUEVA, PARA ESTO SE INSERTARA EL REGISTRO EN UNA NUEVA TABLA (ACTUALIZA_TARJETA)QUE SERVIRA COMO REGISTRO, uso de cursor y funciones 
-3.-FECHA DE PROMOCIONES, PARA LOS CLIENTES QUE HAN COMPRADO UNA CASA SE LES DARA UN DESCUESTO DEL PROXIMO DEPOSITO DEL 20%, A LO QUE HAN PAGADO MAS DE 5 RENTAS UNA DE 10% Y A LO USUARIOS QUE YA CONTRATARON UNA CASA PARA VACACIONAR MAS DE TRES VECES TENDRÁN UN 15%
-Dulce Elizabeth Mendoza de la Vega
-17:46
-2.- ENCONTRAR ENVIAR Y ELIMINAR A LOS CONTACTOS QUE NO HAY VENDIDO, COMPRADO O VACACIONADO EN ALGUNAS DE LAS CASAS
-PROCEDIMIENTO
-Tú
-18:36
-Trigger - Validar existencia de usuario (se compara el email del usuario, si no existe se inserta el registro de usuario,  si existe se alcemanena en otra tabla o se elimina el registro existente y se inserta el nuevo o se actualiza el registro ) (Nos falta plantear bien las condiciones)
-Tú
-18:44
-(FUNCION o PROCEDIMIENTO) colsultar registros de mensaje de viviendas para alquiler que tengan activada la bandera de visto, si la tiene activada y no han recibido respuesta, se busca su registro en calificación y se penaliza con un punto menos en la calificacion.
 
 
 

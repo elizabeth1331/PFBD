@@ -68,4 +68,6 @@ Prompt Creando vistas
 @@s-08-vistas.sql
 Prompt Carga inicial
 @@s-09-carga-inicial.sql
+
+
 commit;
