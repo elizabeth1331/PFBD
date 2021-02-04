@@ -82,57 +82,9 @@ organization external(
 ) 
 reject limit unlimited;
 
-/*
--------------------------------------------------------------------------------------------------------------
----------------------------------------CREANDO TABLA EXTERNA USUARIO/TARJETA-------------------------------------------
--------------------------------------------------------------------------------------------------------------
-*/
-
-
-show user
-prompt creando tabla externa respaldo_usuario_ext
-create table respaldo_usuario_ext (
-  usuario_id       number(10,0),
-  nombre_usuario   varchar2(20),
-  email            varchar2(200),
-  password         varchar2(40),
-  tarjeta_id       number(10,0),
-  num_seguridad    number(4,0),
-  num_tarjeta      number(16,0),
-  anio_exp         number(4,0),
-  mes_exp          number(2,0)
-) 
-organization external(
-  type oracle_loader
-  default directory tmp_dir
-  access parameters (
-    records delimited by newline
-    badfile tmp_dir: 'respaldo_usuario_ext_bad.log'
-    logfile tmp_dir: 'respaldo_usuario_ext.log'
-    fields terminated by ','
-    lrtrim
-    missing field values are null
-    (
-      usuario_id,
-      nombre_usuario,
-      email,
-      password,
-      tarjeta_id,
-      num_seguridad,
-      num_tarjeta,
-      anio_exp,
-      mes_exp
-    )
-  ) 
-  location ('respaldo_usuario.csv')
-) 
-reject limit unlimited;
 
 set linesize window
 col  folio format A20
-
-prompt mostrando los datos de respaldo_usuario_ext
-select * from respaldo_usuario_ext;
 
 prompt mostrando los datos de pago_vivienda_ext  
 

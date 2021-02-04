@@ -16,7 +16,7 @@ Prompt crear usuario invitado
 --drop user mg_proy_invitado cascade;
 create user mg_proy_invitado identified by mg quota unlimited on users;
 
-Prompt crear usuario admin
+Prompt crear usuario invitado
 --drop user gm_proy_admin cascade;
 create user gm_proy_admin identified by mg quota unlimited on users;
 
@@ -28,7 +28,7 @@ Prompt creando rol_admin
 
 --drop role rol_admin;
 create role rol_admin;
-grant create session,create table,create sequence ,create synonym, create public synonym ,create view ,create procedure to rol_admin;
+grant create session,create table,create sequence ,create synonym, create public synonym ,create view,create trigger to rol_admin;
  
 Prompt creando rol_invitado 
 
@@ -49,6 +49,5 @@ grant read, write on directory tmp_dir to gm_proy_admin;
 prompt copiando los archivos csv a /tmp/bases
 !cp pago_vivienda_ext.csv /tmp/bases
 !cp vivienda_venta_ext.csv /tmp/bases
-!cp respaldo_usuario.csv /tmp/bases
 prompt cambiando permisos
 !chmod 777 /tmp/bases

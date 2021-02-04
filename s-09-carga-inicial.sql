@@ -286,40 +286,40 @@ insert into CALIFICACION_ALQUILER (CALIFICACION_ALQUILER_ID, CALIFICACION, DESCR
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-insert into VIVIENDA_VENTA(vivienda_id,num_catastral,clabe,folio,precio_inical,avaluo,comision,usuario_id) values (3,7862351532,384903489823598345,'vvghd1589361893468',850000,empty_blob(),35,27);
+insert into VIVIENDA_VENTA(vivienda_id,num_catastral,clabe,folio,precio_inicial,avaluo,comision,usuario_id) values (3,7862351532,384903489823598345,'vvghd1589361893468',850000,empty_blob(),35,27);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,1,to_date('03/24/2008','mm/dd/yyyy'),empty_blob(),15000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,2,to_date('04/24/2008','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,3,to_date('05/24/2008','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,4,to_date('06/24/2008','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,5,to_date('07/24/2008','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,6,to_date('08/24/2008','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,7,to_date('09/24/2008','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,8,to_date('10/24/2008','mm/dd/yyyy'),empty_blob(),8000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,9,to_date('11/24/2008','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,10,to_date('12/24/2008','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,11,to_date('01/24/2009','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,12,to_date('02/24/2009','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,13,to_date('03/24/2009','mm/dd/yyyy'),empty_blob(),8000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,14,to_date('04/24/2009','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,15,to_date('05/24/2009','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,16,to_date('06/24/2009','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,17,to_date('07/24/2009','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,18,to_date('08/24/2009','mm/dd/yyyy'),empty_blob(),8000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,19,to_date('09/24/2009','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,20,to_date('10/24/2009','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,21,to_date('11/24/2009','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,22,to_date('12/24/2009','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,24,to_date('01/24/2010','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,25,to_date('02/24/2010','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,26,to_date('03/24/2010','mm/dd/yyyy'),empty_blob(),5000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,27,to_date('04/24/2010','mm/dd/yyyy'),empty_blob(),6000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,28,to_date('05/24/2010','mm/dd/yyyy'),empty_blob(),8000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,29,to_date('06/24/2010','mm/dd/yyyy'),empty_blob(),8000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,30,to_date('07/24/2010','mm/dd/yyyy'),empty_blob(),8000);
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,31,to_date('08/24/2010','mm/dd/yyyy'),empty_blob(),6000);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,2,to_date('04/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,3,to_date('05/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,4,to_date('06/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,5,to_date('07/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,6,to_date('08/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,7,to_date('09/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,8,to_date('10/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,9,to_date('11/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,10,to_date('12/24/2008','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,11,to_date('01/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,12,to_date('02/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,13,to_date('03/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,14,to_date('04/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,15,to_date('05/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,16,to_date('06/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,17,to_date('07/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,18,to_date('08/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,19,to_date('09/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,20,to_date('10/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,21,to_date('11/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,22,to_date('12/24/2009','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,24,to_date('01/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,25,to_date('02/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,26,to_date('03/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,27,to_date('04/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,28,to_date('05/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,29,to_date('06/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,30,to_date('07/24/2010','mm/dd/yyyy'),empty_blob(),9500);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,31,to_date('08/24/2010','mm/dd/yyyy'),empty_blob(),9500);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -331,6 +331,6 @@ insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,f
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(1,2000,to_date('09/1/1992','mm/dd/yyyy'));
-insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(4,2500,to_date('07/21/2007','mm/dd/yyyy'))
-insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(5,1500,to_date('02/17/2012','mm/dd/yyyy')
+insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(4,2500,to_date('07/21/2007','mm/dd/yyyy'));
+insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(5,1500,to_date('02/17/2012','mm/dd/yyyy'));
 
