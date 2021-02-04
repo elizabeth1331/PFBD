@@ -50,7 +50,7 @@ insert into ESTATUS_VIVIENDA(estatus_vivienda_id,clave,descripcion)values (estat
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 insert into VIVIENDA(vivienda_id,direccion,longitud,latitud,capacidad_max,descripcion,fecha_estatus,es_v_venta,es_v_renta,es_v_vacacionar,usuario_id,estatus_vivienda_id) values (vivienda_seq.nextval,'Calle Maestro Antonio Caso 147, San Rafael, Cuauhtémoc, 06470 Ciudad de México, CDMX',79.372954064531918, -13.18435041904353,10,'Casa grande',to_date('09/17/1992','mm/dd/yyyy'),0,1,1,13,3);
-insert into VIVIENDA(vivienda_id,direccion,longitud,latitud,capacidad_max,descripcion,fecha_estatus,es_v_venta,es_v_renta,es_v_vacacionar,usuario_id,estatus_vivienda_id) values (vivienda_seq.nextval,'Amsterdam 53, Hipódromo, Cuauhtémoc, 06100 Ciudad de México, CDMX',19.379532817225638, -99.18111567497455,5,'Casa pequeña ',to_date('05/18/1998','mm/dd/yyyy'),0,1,1,,10,2);
+insert into VIVIENDA(vivienda_id,direccion,longitud,latitud,capacidad_max,descripcion,fecha_estatus,es_v_venta,es_v_renta,es_v_vacacionar,usuario_id,estatus_vivienda_id) values (vivienda_seq.nextval,'Amsterdam 53, Hipódromo, Cuauhtémoc, 06100 Ciudad de México, CDMX',19.379532817225638, -99.18111567497455,5,'Casa pequeña ',to_date('05/18/1998','mm/dd/yyyy'),0,1,1,10,2);
 insert into VIVIENDA(vivienda_id,direccion,longitud,latitud,capacidad_max,descripcion,fecha_estatus,es_v_venta,es_v_renta,es_v_vacacionar,usuario_id,estatus_vivienda_id) values (vivienda_seq.nextval,'Augusto Rodin 499, Insurgentes Mixcoac, Benito Juárez, 03920 Ciudad de México, CDMX',82.372954064531918, -45.18435041904353,4,'Casa mediana',to_date('01/24/2001','mm/dd/yyyy'),1,0,0,28,1);
 insert into VIVIENDA(vivienda_id,direccion,longitud,latitud,capacidad_max,descripcion,fecha_estatus,es_v_venta,es_v_renta,es_v_vacacionar,usuario_id,estatus_vivienda_id) values (vivienda_seq.nextval,'Calle Salvador Díaz Mirón 84, Sta María la Ribera, Cuauhtémoc, 06400 Ciudad de México, CDMX',20.372954064531918, -69.18435041904353,8,'Departamento ',to_date('09/15/2007','mm/dd/yyyy'),0,1,0,8,3);
 insert into VIVIENDA(vivienda_id,direccion,longitud,latitud,capacidad_max,descripcion,fecha_estatus,es_v_venta,es_v_renta,es_v_vacacionar,usuario_id,estatus_vivienda_id) values (vivienda_seq.nextval,'Centro Armand, Av. de los Insurgentes Sur 1391, Insurgentes Mixcoac, Benito Juárez, 03920 Ciudad de México, CDMX',19.373450010522657, -99.18015007973771,2,'Departamento grande',to_date('03/01/2012','mm/dd/yyyy'),0,0,1,1,2);
@@ -117,39 +117,39 @@ insert into  MENSAJE(mensaje_id,titulo,texto,visto,usuario_id,respuesta_id,vivie
 --16 registros usuario en nextval
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6625, 3550837210055169, 00, 06, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6000, 2014415341857593, 23, 05, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 5450, 2014758480188012, 22, 11, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 1084, 3540468079556619, 22, 02, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 1146, 3572520960139698, 21, 01, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4152, 5150938709782427, 23, 12, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4253, 6761235887192321, 10, 03, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6625, 3550837210055169, 2000, 06, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6000, 2014415341857593, 2023, 05, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 5450, 2014758480188012, 2022, 11, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 1084, 3540468079556619, 2022, 02, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 1146, 3572520960139698, 2021, 01, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4152, 5150938709782427, 2023, 12, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4253, 6761235887192321, 2010, 03, usuario_seq.nextval);
 
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3517, 3539113635782134, 25, 09, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4897, 3550575031992661, 18, 08, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 7914, 3576304045255217, 21, 12, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2332, 3581888219785846, 22, 06, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2635, 3546394589273574, 23, 01, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 9329, 3535629778538060, 22, 04, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6433, 3549730303502748, 20, 11, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3582, 3580111806933831, 19, 05, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3517, 3539113635782134, 2025, 09, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4897, 3550575031992661, 2018, 08, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 7914, 3576304045255217, 2021, 12, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2332, 3581888219785846, 2022, 06, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2635, 3546394589273574, 2023, 01, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 9329, 3535629778538060, 2022, 04, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6433, 3549730303502748, 2020, 11, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3582, 3580111806933831, 2019, 05, usuario_seq.nextval);
 --nos quedamos en usuario 31
 alter sequence usuario_seq increment by -1;
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3606, 5010122166844596, 25, 01, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2726, 3539433727655224, 20, 05, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 1331, 4913417944129224, 24, 09, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6530, 3576735486259079, 21, 08, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2991, 3556946947635443, 22, 06, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2765, 3563516284532320, 23, 07, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3149, 5602220516431060, 24, 03, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 7904, 5610966412580394, 20, 02, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2177, 3574324076606114, 25, 08, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4870, 6759231946232956, 23, 11, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 7373, 3579264601207985, 23, 05, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6027, 3529203576557801, 24, 09, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 8278, 2017887038147040, 21, 12, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4449, 6763185477829009, 23, 05, usuario_seq.nextval);
-insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4602, 6334481396631675, 22, 02, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3606, 5010122166844596, 2025, 01, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2726, 3539433727655224, 2020, 05, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 1331, 4913417944129224, 2024, 09, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6530, 3576735486259079, 2021, 08, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2991, 3556946947635443, 2022, 06, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2765, 3563516284532320, 2023, 07, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 3149, 5602220516431060, 2024, 03, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 7904, 5610966412580394, 2020, 02, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 2177, 3574324076606114, 2025, 08, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4870, 6759231946232956, 2023, 11, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 7373, 3579264601207985, 2023, 05, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 6027, 3529203576557801, 2024, 09, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 8278, 2017887038147040, 2021, 12, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4449, 6763185477829009, 2023, 05, usuario_seq.nextval);
+insert into TARJETA_CREDITO (TARJETA_ID, NUM_SEGURIDAD, NUM_TARJETA, ANIO_EXP, MES_EXP, USUARIO_ID) values (tarjeta_seq.nextval, 4602, 6334481396631675, 2022, 02, usuario_seq.nextval);
 --nos quesamos en usuario 16
 --Debemos llegar nuevamente al 31 en la secuencia para poder generar nuevos usuarios
 select usuario_seq.currval from dual;
@@ -268,29 +268,29 @@ insert into ALQUILER (ALQUILER_ID, FECHA_INI, FECHA_FIN, FOLIO, VIVIENDA_ID, USU
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 select usuario_seq.currval from dual;
 --vamos en el usuario 14
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5512089054, 0, 2,usuario_seq.nextval);
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5512088965, 0, 2,usuario_seq.nextval);
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5535945347, 0, 2,usuario_seq.nextval);
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5540955948, 0, 2,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 551208905434, 0, 2,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 551208896578, 0, 2,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 553594534709, 0, 2,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 554095594865, 0, 2,usuario_seq.nextval);
 alter sequence usuario_seq increment by -1;
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5556056954, 0, 6,usuario_seq.nextval);
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5522076186, 0, 6,usuario_seq.nextval);
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5535945347, 0, 6,usuario_seq.nextval);
-insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 5595483905, 0, 6,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 555605695494, 0, 6,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 552207618668, 0, 6,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 553594534787, 0, 6,usuario_seq.nextval);
+insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 559548390545, 0, 6,usuario_seq.nextval);
 --vamos en el usuario 22
 alter sequence alquiler_seq increment by -1;
-insert into CALIFICACION_VIVIENDA (CALIFICACION_VIVIENDA_ID, CALIFICACION, DESCRIPCION, FECHA, USUARIO_ID, ALQUILER_ID) values (calif_v_seq.nextval, 5, 'Casa en perfectas condiciones, buena vista',to_date('01/01/2021','mm/dd/yyyy')+6,2,alquiler_seq.nextval);
+insert into CALIFICACION_ALQUILER (CALIFICACION_ALQUILER_ID, CALIFICACION, DESCRIPCION, FECHA, USUARIO_ID, ALQUILER_ID) values (calif_v_seq.nextval, 5, 'Casa en perfectas condiciones, buena vista',to_date('01/01/2021','mm/dd/yyyy')+6,2,alquiler_seq.nextval);
 alter sequence alquiler_seq increment by 1;
-insert into CALIFICACION_VIVIENDA (CALIFICACION_VIVIENDA_ID, CALIFICACION, DESCRIPCION, FECHA, USUARIO_ID, ALQUILER_ID) values (calif_v_seq.nextval, 5, 'Casa en perfectas condiciones, buena vista',to_date('01/01/2021','mm/dd/yyyy')+4,4,alquiler_seq.nextval);
+insert into CALIFICACION_ALQUILER (CALIFICACION_ALQUILER_ID, CALIFICACION, DESCRIPCION, FECHA, USUARIO_ID, ALQUILER_ID) values (calif_v_seq.nextval, 5, 'Casa en perfectas condiciones, buena vista',to_date('01/01/2021','mm/dd/yyyy')+4,4,alquiler_seq.nextval);
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-insert into VIVIENDA_VENTA(vivienda_id,num_catastral,clabe,folio,precio_inical,avaluo,comision,usuario_id) values (3,489321457862351532,vvghd1589361893468,850000,empty_blob(),35,27);
+insert into VIVIENDA_VENTA(vivienda_id,num_catastral,clabe,folio,precio_inical,avaluo,comision,usuario_id) values (3,7862351532,384903489823598345,'vvghd1589361893468',850000,empty_blob(),35,27);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,1,to_date('03/24/2008','mm/dd/yyyy'),empty_blob(),150000);
+insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,1,to_date('03/24/2008','mm/dd/yyyy'),empty_blob(),15000);
 insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,2,to_date('04/24/2008','mm/dd/yyyy'),empty_blob(),5000);
 insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,3,to_date('05/24/2008','mm/dd/yyyy'),empty_blob(),6000);
 insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3,4,to_date('06/24/2008','mm/dd/yyyy'),empty_blob(),5000);
@@ -325,7 +325,7 @@ insert into PAGO_VIVIENDA(vivienda_id,num_pago,fecha,pdf_pago,importe) values (3
 
 
 insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98fg32',to_date('09/1/1992','mm/dd/yyyy'),empty_blob(),9);
-insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98ru384',to_date('07/21/2007','mm/dd/yyyy'),empty_blob(),21);
+insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98ru38',to_date('07/21/2007','mm/dd/yyyy'),empty_blob(),21);
 insert into VIVIENDA_RENTA_USUARIO(vivienda_renta_usuario_id,vivienda_id,folio,fecha_contrato,pdf_contrato,usuario_id) values (v_renta_usuario_seq.nextval,1,'vvue469863ed98kl63',to_date('02/17/2012','mm/dd/yyyy'),empty_blob(),14);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
