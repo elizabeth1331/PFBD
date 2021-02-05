@@ -49,5 +49,6 @@ grant read, write on directory tmp_dir to gm_proy_admin;
 prompt copiando los archivos csv a /tmp/bases
 !cp pago_vivienda_ext.csv /tmp/bases
 !cp vivienda_venta_ext.csv /tmp/bases
+!cp respaldo_usuario.csv /tmp/bases
 prompt cambiando permisos
 !chmod 777 /tmp/bases
