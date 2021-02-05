@@ -51,25 +51,34 @@ set serveroutput off
 ----------------------------------------------INVOCACIÓN DE SCRIPTS------------------------------------------------
 -------------------------------------------------------------------------------------------------------------
 Prompt Creando usuarios
-/*@@s-01-usuarios.sql
+@@s-01-usuarios.sql
 Prompt Creando tablas
 @@s-02-entidades.sql
 Prompt Creando tablas temporales
-/*@@s-03-tablas-temporales.sql
+@@s-03-tablas-temporales.sql
 Prompt Creando tablas temporales
 @@s-04-tablas-externas.sql
-Prompt Creando tablas externas*/
-/*@@s-05-secuencias.sql
+Prompt Creando tablas externas
+@@s-05-secuencias.sql
 Prompt Creando indices
-/*@@s-06-indices.sql
+@@s-06-indices.sql
 Prompt Creando sinonimos
 @@s-07-sinonimos.sql
 Prompt Creando vistas
 @@s-08-vistas.sql
 Prompt Carga inicial
-@@s-09-carga-inicial.sql*/
-Prompt Creando Trigger de promociones
-@@s-11-tr-descuentos-cobro
+@@s-09-carga-inicial.sql
+--Prompt Creando Trigger de promociones
+--@@s-11-tr-descuentos-cobro
+
+Prompt Creando Procedimiento penalizacion_calificacion
+@@s-13-p-penalizacion_calificacion.sql
+Prompt Prueba Procdimiento penalizacion_calificacion
+@@s-14-p-penalizacion_calificacion-prueba.sql
+Prompt Creando Funció genera_csv
+@@s-15-fx-genera_csv.sql
+Prompt Prueba Función genera_csv
+@@s-16-fx-genera_csv-prueba.sql
 
 
 commit;

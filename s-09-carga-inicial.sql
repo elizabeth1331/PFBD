@@ -272,7 +272,6 @@ insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_I
 insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 551208896578, 0, 2,usuario_seq.nextval);
 insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 553594534709, 0, 2,usuario_seq.nextval);
 insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 554095594865, 0, 2,usuario_seq.nextval);
-alter sequence usuario_seq increment by -1;
 insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 555605695494, 0, 6,usuario_seq.nextval);
 insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 552207618668, 0, 6,usuario_seq.nextval);
 insert into APARTA_VIVIENDA (APARTA_VIVIENDA_ID, NUM_CELULAR, ENVIADA,VIVIENDA_ID, USUARIO_ID) values (aparta_v_seq.nextval, 553594534787, 0, 6,usuario_seq.nextval);
@@ -334,3 +333,23 @@ insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(1,2000
 insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(4,2500,to_date('07/21/2007','mm/dd/yyyy'));
 insert into VIVIENDA_RENTA(vivienda_id,renta_mensual,dia_deposito) values(5,1500,to_date('02/17/2012','mm/dd/yyyy'));
 
+Prompt Bloque anonimo para poner la secuencia de usuario al valor correcto
+alter sequence usuario_seq increment by 1;
+declare
+	v_num_usuarios number(10,0);
+	v_seq_usuario_actual number(10,0);
+	v_aux number(10,0);
+begin
+  select count(*) into v_num_usuarios
+  from usuario;
+
+  select usuario_seq.currval into v_seq_usuario_actual
+  from dual;
+
+  for i in v_seq_usuario_actual .. v_num_usuarios-1 loop
+    select usuario_seq.nextval into v_aux from dual;
+  end loop;
+end;
+/
+    select usuario_seq.currval from dual;
+    select count(*) from usuario;

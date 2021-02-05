@@ -1,4 +1,4 @@
---@Autor: Jeremy García Meneses
+--@Autor: Jeremy García Meneses, MENDOZA DE LA VEGA DULCE ELIZABETH
 --@Fecha creación: 03/02/2021
 --@Descripción: FUNCIONES
 connect gm_proy_admin/mg

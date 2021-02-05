@@ -282,7 +282,7 @@ CREATE TABLE VIVIENDA_VENTA(
     num_catastral       number(10,0)     not null,
     clabe               number(18,0)     not null,
     folio               varchar2(18)     not null,
-    precio_inical       number(10,2)     not null,
+    precio_inicial       number(10,2)     not null,
     avaluo              blob             not null,
     comision            number(3,0)      not null,
     usuario_id          number(10,0),
